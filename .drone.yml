@@ -1,0 +1,27 @@
+kind: pipeline
+name: BuildAndTest
+
+steps:
+  - name: vendor
+    image: golang
+    volumes:
+      - name: deps
+        path: /go
+    commands:
+      - go mod vendor
+
+  - name: test
+    image: golang
+    volumes:
+      - name: deps
+        path: /go
+    commands:
+      - go test
+
+  - name: build
+    image: golang
+    volumes:
+      - name: deps
+        path: /go
+    commands:
+      - go build
