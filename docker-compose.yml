@@ -1,0 +1,35 @@
+version: "2.1"
+
+services:
+  bitmap:
+    image: bitmap:latest
+    build: .
+    ports:
+      - 3000:3000
+    depends_on:
+      - redis
+    volumes:
+      - /Users/ken/Documents/gopath/src/play/bitmap/data:/usr/local/var/bitmap
+    networks:
+      - bitmap
+
+  redis:
+    image: redis:alpine
+    volumes:
+      - /Users/ken/Documents/gopath/src/play/bitmap/data:/data
+    networks:
+      bitmap:
+        aliases:
+          - redis
+
+# networks:
+#   app_net:
+#     driver: bridge
+#     enable_ipv6: false
+#     ipam:
+#       driver: default
+#       config:
+#         - subnet: 172.16.238.0/24
+#           gateway: 172.16.238.1
+networks:
+  bitmap:
