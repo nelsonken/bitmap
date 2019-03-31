@@ -22,11 +22,7 @@ type Bit struct {
 }
 
 func main() {
-	f, err := os.OpenFile("log.txt", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0666)
-	if err != nil {
-		log.Fatalf("open file failed %v\n", err)
-	}
-	logger := log.New(f, "[bitmap] ", 2)
+	logger := log.New(os.Stdout, "[bitmap] ", 2)
 	cfg, err := ini.Load(os.Args[1])
 	if err != nil {
 		logger.Fatalf("reed config.ini failed %v", err)

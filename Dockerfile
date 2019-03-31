@@ -9,6 +9,6 @@ COPY bitmap /usr/local/bin/bitmap
 WORKDIR /usr/local/var/bitmap
 
 EXPOSE 3000
-# VOLUME ["./data", "/usr/local/var/bitmap"]
+VOLUME ["/Users/ken/Documents/gopath/src/play/bitmap/data", "/usr/local/var/bitmap"]
 
 CMD ["/usr/local/bin/bitmap", "config.ini"]

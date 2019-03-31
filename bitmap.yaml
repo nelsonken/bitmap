@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-bitmap
+  labels:
+    k8s-app: bitmap
+spec:
+  selector:
+    matchLabels:
+      run: redis-bitmap
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: redis-bitmap
+    spec:
+      containers:
+        - name: redis-bitmap
+          image: bitmap:latest
+          imagePullPolicy: IfNotPresent
+          resources:
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - mountPath: /usr/local/var/bitmap
+              name: work-path
+  volumes:
+    - hostPath:
+        path: /Users/ken/Documents/gopath/src/play/bitmap/data
+        type: DirectoryOrCreate
+      name: work-path
