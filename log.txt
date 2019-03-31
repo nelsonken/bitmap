@@ -1,9 +1,0 @@
-docker-bitmap22:57:34 GET, /bitmap?id=1231, 
-docker-bitmap22:59:04 GET, /bitmap?id=1231, 
-docker-bitmap22:59:56 GET, /bitmap?id=1231, 
-docker-bitmap23:00:33 GET, /bitmap?id=1231, 
-docker-bitmap23:01:11 GET, /bitmap?id=1231, 
-docker-bitmap23:01:40 GET, /bitmap?id=1231, 
-docker-bitmap23:03:43 GET, /bitmap?id=1231, 
-docker-bitmap23:04:28 PUT, /bitmap, {"id":1231,"bit":1}
-docker-bitmap23:04:36 GET, /bitmap?id=1231, 
